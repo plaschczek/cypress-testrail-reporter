@@ -1,14 +1,20 @@
 # cypress-testrail-reporter
 This little tool will help you to parse and post cypress test results to testrail.
 
+## Fork of @sum.cumo/cypress-testrail-reporter
+Only forked to fix quickly cypress 10 change of cpyress.json to config.cypress.js, but not to
+load config, but to ignore not existing cypress.json.
+
+All Arguments could be passed as CLI Arguments - see below.
+
 ## Preconditions
-This tools works with Mochawesome Json Reports. So please make sure you have the following packages installed: 
+This tools works with Mochawesome Json Reports. So please make sure you have the following packages installed:
 ```
 yarn add --dev mocha mochawesome mochawesome-merge
 ```
 
 
-Example Configuration of the Mochawesome Reporter (`cypress.json`): 
+Example Configuration of the Mochawesome Reporter (`cypress.json`):
 ``` json
     "reporter": "mochawesome",
     "reporterOptions": {
@@ -38,7 +44,7 @@ Or
 describe('Feature Tests [123]', () => {
 
   it('should do something', () => {})
-  
+
 })
 ```
 
@@ -81,7 +87,7 @@ Example:
 You can also provide the arguments `name` `password` and `host` within the cli like
 ```
 yarn cypress-testrail-reporter --user some@one.com --password YOUR_PASSWORD --host https://example.testrail.io/
-``` 
+```
 
 ## Usage
 As soon as your Mochawesome Report was generated you can execute the following
@@ -95,7 +101,7 @@ This will create a new or update an existing Testrun with the given name and wil
 yarn cypress-testrail-reporter --name NAME_OF_YOUR_TESTRUN --attach test/cypress/results/report.html --assets test/cypress/videos test/cypress/screenshots --assetsArchiveName CUSTOM_NAME_FOR_YOUR_ARCHIVE
 ```
 This will create a new or update an existing Testrun with the given name and will report all results found in your Mochawesome Report.
-Afterwards it will attach a report.html to this run and create an archive containing all provided assets and attach it as well. 
+Afterwards it will attach a report.html to this run and create an archive containing all provided assets and attach it as well.
 
 
 
@@ -119,7 +125,7 @@ yarn cypress-testrail-reporter --help
 
 ## CI Integration
 
-This Reporter is intended to be used in your CI / CD Pipeline. 
+This Reporter is intended to be used in your CI / CD Pipeline.
 
 ```yaml
 Integration Test:
